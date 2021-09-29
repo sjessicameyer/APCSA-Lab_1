@@ -35,14 +35,37 @@ public class menu{
       System.out.print(""+operator+num2+"\n");
 
       //TO DO: Convert answer back to base of choice
-      answer=mathStuff.doMath(mathStuff.convertToBase10(num1, base), mathStuff.convertToBase10(num2, base), operator);
+      answer=mathStuff.convertFromBase10(mathStuff.doMath(mathStuff.convertToBase10(num1, base), mathStuff.convertToBase10(num2,base), operator),base);
 
-      for (int x=0;x<customMath.countDigits(answer);x++){
+      if (operator.equals("-")){
+        for (int x=0;x<customMath.countDigits(num2)+1;x++){
         System.out.print("-");
+        }
+        System.out.println("");
+        System.out.print(answer);
+        System.out.println("");
+      }else if(operator.equals("+")){
+        for (int x=0;x<customMath.countDigits(num2)+1;x++){
+          System.out.print("-");
+        }
+        System.out.println("");
+        System.out.print(answer);
+        System.out.println("");
+      }else if(operator.equals("*")){
+        for (int x=0;x<customMath.countDigits(num2)+1;x++){
+          System.out.print("-");
+        }
+        for (int x=0;x<customMath.countDigits(num2);x++){
+          int num1Fragment=customMath.findDigit(num1, x);
+          System.out.println(mathStuff.convertFromBase10(mathStuff.doMath(mathStuff.convertToBase10(num1Fragment, base), mathStuff.convertToBase10(num2,base), operator),base));
+          System.out.println("");
+        }
+        for (int x=0;x<customMath.countDigits(answer);x++){
+          System.out.print("=");
+        }
+        System.out.println("");
+        System.out.print(answer);
       }
-      System.out.println("");
-      System.out.print(answer);
-      System.out.println("");
     }
   }
 }

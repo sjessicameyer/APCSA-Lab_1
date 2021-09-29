@@ -11,6 +11,18 @@ public class Lab_1{
   public Lab_1(){
   }
 
+  public int convertFromBase10(int num, int base){
+    int answer = 0;
+    int num1 = num; //used as an intermediate stage in calculations
+    int i=0;
+    do {
+      answer = (num1 % base)*customMath.power(10, i)+answer;
+      num1 = num1/base;
+      i++;
+    }while(num1!=0);
+    return answer;
+  }
+
   public int convertToBase10(int num, int base){
     int answer = 0;
     for (int i=0;i<customMath.countDigits(num);i++){
@@ -18,7 +30,6 @@ public class Lab_1{
     }
     return answer;
   }
-
   public int doMath(int num1, int num2, String operator){
     int answer=0;
     if (operator.equals("+")){
@@ -27,8 +38,8 @@ public class Lab_1{
       answer=num1-num2;
     }else if (operator.equals("*")){
       answer=num1*num2;
-    }else if (operator.equals("/")){
-      answer=num1/num2;
+    //}else if (operator.equals("/")){
+     // answer=num1/num2;
     }else {
       System.out.print("Not a valid operator, exiting now...");
       System.exit(0);

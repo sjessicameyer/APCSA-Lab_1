@@ -36,6 +36,7 @@ public class customMath{
       for (int k=num; k>1; k--){
         if (i*k==num){
           isPrime=false;
+          //possibly broken
         }
       }
     }
